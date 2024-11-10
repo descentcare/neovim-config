@@ -36,8 +36,8 @@ return {
 
   -- Telescope {{{
   {
-    'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
+    "nvim-telescope/telescope.nvim",
+    branch = "0.1.x",
     lazy = false,
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -51,17 +51,17 @@ return {
 
   -- CMP {{{
   {
-    'hrsh7th/nvim-cmp',
+    "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     dependencies = {
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip',
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-path',
-      'hrsh7th/cmp-emoji',
-      'hrsh7th/cmp-nvim-lsp-signature-help',
-      'hrsh7th/cmp-nvim-lua',
-      'rafamadriz/friendly-snippets',
+      "L3MON4D3/LuaSnip",
+      "saadparwaiz1/cmp_luasnip",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-emoji",
+      "hrsh7th/cmp-nvim-lsp-signature-help",
+      "hrsh7th/cmp-nvim-lua",
+      "rafamadriz/friendly-snippets",
     },
     config = function()
       require "extensions.cmp"
@@ -71,7 +71,7 @@ return {
 
   -- LSP Kind {{{
   {
-    'onsails/lspkind-nvim',
+    "onsails/lspkind-nvim",
     lazy = true,
     config = function()
       require "extensions.lspkind"
@@ -81,7 +81,7 @@ return {
 
   -- Git Signs{{{
   {
-    'lewis6991/gitsigns.nvim',
+    "lewis6991/gitsigns.nvim",
     lazy = false,
     config = function()
       require "extensions.gitsigns"
@@ -125,7 +125,7 @@ return {
 
   -- Themify {{{
   {
-    'lmantw/themify.nvim',
+    "lmantw/themify.nvim",
     lazy = false,
     priority = 999,
 
@@ -135,11 +135,17 @@ return {
 
   -- Mini.nvim {{{
   {
-    'echasnovski/mini.nvim',
+    "echasnovski/mini.nvim",
     version = false,
     config = function ()
       require("extensions.mini")
     end
+  },
+  -- }}}
+
+  -- FTerm {{{
+  {
+    "numToStr/FTerm.nvim",
   },
   -- }}}
 }

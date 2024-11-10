@@ -43,3 +43,10 @@ wk.add({
     { "<leader>x", "<cmd>Trouble diagnostics toggle<cr>", desc = "Toggle trouble" },
 })
 -- }}}
+
+-- FTerm {{{
+wk.add({
+    { "<A-i>", "<cmd>lua require('FTerm').toggle()<cr>", desc = "Toggle terminal", mode = 'n' },
+    { "<A-i>", "<c-\\><c-n><cmd>lua require('FTerm').toggle()<cr>", desc = "Toggle terminal", mode = 't' },
+})
+-- }}}
