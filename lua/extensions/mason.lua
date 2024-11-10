@@ -12,12 +12,13 @@ mason.setup()
 mason_lspconfig.setup({
   ensure_installed = {
     "lua_ls",             -- LSP for Lua language
-    "tsserver",           -- LSP for Typescript
+    "ts_ls",              -- LSP for Typescript
     "emmet_ls",           -- LSP for Emmet (Vue, HTML, CSS)
     "cssls",              -- LSP for CSS
     "pyright",            -- LSP for Python
     "volar",              -- LSP for Vue
-    "gopls",              -- LSP for Go
+    "omnisharp",
+    --"gopls",              -- LSP for Go
   }
 });
 
@@ -25,6 +26,18 @@ mason_lspconfig.setup({
 mason_lspconfig.setup_handlers {
   function (server_name)
     lspconfig[server_name].setup {}
+  end,
+  ["lua_ls"] = function()
+    lspconfig.lua_ls.setup(
+    {
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = { "vim" },
+          },
+        },
+      },
+    })
   end,
   ["volar"] = function()
     lspconfig.volar.setup({

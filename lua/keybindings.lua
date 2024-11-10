@@ -4,51 +4,42 @@ require "helpers/keyboard"
 local wk = require("which-key")
 
 -- Global {{{
-wk.register({
-  ["K"] = {"<cmd>lua vim.lsp.buf.hover()<cr>", "Hover information"},
-  ["<leader>o"] = {"<cmd>Telescope find_files<cr>", "Find files"},
-  ["<leader>p"] = {"<cmd>Telescope oldfiles<cr>", "Previous files"},
-  ["<leader>f"] = {"<cmd>Telescope find_files<cr>", "Find in files"},
-  ["gd"] = {"<cmd>lua vim.lsp.buf.definition()<cr>", "Go to declaration" },
-  ["gr"] = {"<cmd>Telescope lsp_references<cr>", "Go to references"},
+wk.add({
+  { "K", "<cmd>lua vim.lsp.buf.hover()<cr>", desc = "Hover information"},
+  { "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", desc = "Go to declaration" },
+  { "gr", "<cmd>Telescope lsp_references<cr>", desc = "Go to references"},
 })
 -- }}}
 
 -- LSP {{{
-wk.register({
-  l = {
-    name = "LSP",
-      ["r"] = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename symbol" },
-      ["a"] = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code action" },
+wk.add({
+  {
+    { "<leader>l", group = "LSP" },
+    { "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", desc = "Code action" },
+    { "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<CR>", desc = "Rename symbol" },
   }
-}, { prefix = "<leader>" })
+})
  -- }}}
 
 -- Telescope {{{
-wk.register({
-  t = {
-    name = "Telescope",
-    t = {"<cmd>Telescope<cr>", "Open Telescope"},
-    p = {"<cmd>Telescope oldfiles<cr>", "Oldfiles"},
-    s = {"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace symbols"},
-    j = {"<cmd>Telescope jumplist<cr>", "Jumplist"},
-    b = {"<cmd>Telescope buffers<cr>", "Buffers"},
-    q = {"<cmd>Telescope quickfix<cr>", "Quickfix list"},
-    r = {"<cmd>Telescope resume<cr>", "Previous Telescope window"},
-    o = {"<cmd>Telescope find_files<CR>", "Find files"},
-    g = {
-      name = "Git",
-      b = {"<cmd>Telescope git_branches<cr>", "Git branches"},
-      o = { "<cmd>Telescope git_files<cr>", "Git files"},
-    }
+wk.add({
+  {
+    { "<leader>f", group = "Telescope" },
+    { "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Find files" },
+    { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
+    { "<leader>fg", "<cmd>Telescope live_grep<CR>", desc = "Grep in files" },
+    { "<leader>fj", "<cmd>Telescope jumplist<cr>", desc = "Jumplist" },
+    { "<leader>fp", "<cmd>Telescope oldfiles<cr>", desc = "Oldfiles" },
+    { "<leader>fq", "<cmd>Telescope quickfix<cr>", desc = "Quickfix list" },
+    { "<leader>fr", "<cmd>Telescope resume<cr>", desc = "Previous Telescope window" },
+    { "<leader>fs", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Workspace symbols" },
+    { "<leader>ft", "<cmd>Telescope<cr>", desc = "Open Telescope" },
   }
-}, { prefix = "<leader>"})
--- }}}
-
--- Trouble {{{
-wk.register({
-  ["<leader>x"] = {"<cmd>Trouble diagnostics toggle<cr>", "Toggle trouble" },
 })
 -- }}}
 
--- vim:tabstop=2 shiftwidth=2 expandtab syntax=lua foldmethod=marker foldlevelstart=0 foldlevel=0
+-- Trouble {{{
+wk.add({
+    { "<leader>x", "<cmd>Trouble diagnostics toggle<cr>", desc = "Toggle trouble" },
+})
+-- }}}

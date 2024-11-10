@@ -1,8 +1,8 @@
 --[[
-  File: plugins.lua
-  Description: This file needed for loading plugin list into lazy.nvim and loading plugins
-  Info: Use <zo> and <zc> to open and close foldings
-  See: https://github.com/folke/lazy.nvim
+File: plugins.lua
+Description: This file needed for loading plugin list into lazy.nvim and loading plugins
+Info: Use <zo> and <zc> to open and close foldings
+See: https://github.com/folke/lazy.nvim
 ]]
 
 require "helpers/globals"
@@ -22,31 +22,16 @@ return {
   },
   -- }}}
 
--- Which key {{{
-{
-  "folke/which-key.nvim",
+  -- Which key {{{
+  {
+    "folke/which-key.nvim",
     event = "VeryLazy",
     config = true,
     init = function()
       vim.o.timeout = true
       vim.o.timeoutlen = 300
     end,
-},
--- }}}
-
-  -- Neo Tree {{{
-  -- Uncomment it if you wish, but don't forget to comment mini.files in extensions/mini.lua
-  -- {
-  --   "nvim-neo-tree/neo-tree.nvim",
-  --   branch = "v3.x",
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",
-  --     "MunifTanjim/nui.nvim",
-  --   },
-  --   config = function ()
-  --     require "extensions.neotree"
-  --   end
-  -- },
+  },
   -- }}}
 
   -- Telescope {{{
@@ -126,15 +111,25 @@ return {
   },
   -- }}}
 
-  -- Theme: Vitesse {{{
+  -- Theme: Gruvbox {{{
   {
-    "2nthony/vitesse.nvim",
-    dependencies = {
-      "tjdevries/colorbuddy.nvim"
-    },
-    config = function ()
-      require("extensions.colorscheme.vitesse")
-    end
+    "ellisonleao/gruvbox.nvim",
+  },
+  -- }}}
+
+  -- Theme: Ofirkai {{{
+  {
+    "ofirgall/ofirkai.nvim",
+  },
+  -- }}}
+
+  -- Themify {{{
+  {
+    'lmantw/themify.nvim',
+    lazy = false,
+    priority = 999,
+
+    config = {}
   },
   -- }}}
 
@@ -148,5 +143,3 @@ return {
   },
   -- }}}
 }
-
--- vim:tabstop=2 shiftwidth=2 expandtab syntax=lua foldmethod=marker foldlevelstart=0 foldlevel=0
