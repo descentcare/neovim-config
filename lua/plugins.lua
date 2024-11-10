@@ -9,143 +9,180 @@ require "helpers/globals"
 
 return {
   -- Mason {{{
-  {
-    "williamboman/mason.nvim",
-    build = ":MasonUpdate",
-    dependencies = {
-      "williamboman/mason-lspconfig.nvim",
-      "neovim/nvim-lspconfig",
-    },
-    config = function()
-      require "extensions.mason"
-    end
-  },
+      {
+          "williamboman/mason.nvim",
+          build = ":MasonUpdate",
+          dependencies = {
+              "williamboman/mason-lspconfig.nvim",
+              "neovim/nvim-lspconfig",
+          },
+          config = function()
+              require "extensions.mason"
+          end
+      },
   -- }}}
 
   -- Which key {{{
-  {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
-    config = true,
-    init = function()
-      vim.o.timeout = true
-      vim.o.timeoutlen = 300
-    end,
-  },
+      {
+          "folke/which-key.nvim",
+          event = "VeryLazy",
+          config = true,
+          init = function()
+              vim.o.timeout = true
+              vim.o.timeoutlen = 300
+          end,
+      },
   -- }}}
 
   -- Telescope {{{
-  {
-    "nvim-telescope/telescope.nvim",
-    branch = "0.1.x",
-    lazy = false,
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "ahmedkhalf/project.nvim",
-    },
-    config = function()
-      require "extensions.telescope"
-    end
-  },
+      {
+          "nvim-telescope/telescope.nvim",
+          branch = "0.1.x",
+          lazy = false,
+          dependencies = {
+              "nvim-lua/plenary.nvim",
+              "ahmedkhalf/project.nvim",
+          },
+          config = function()
+              require "extensions.telescope"
+          end
+      },
   -- }}}
 
   -- CMP {{{
-  {
-    "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
-    dependencies = {
-      "L3MON4D3/LuaSnip",
-      "saadparwaiz1/cmp_luasnip",
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-emoji",
-      "hrsh7th/cmp-nvim-lsp-signature-help",
-      "hrsh7th/cmp-nvim-lua",
-      "rafamadriz/friendly-snippets",
-    },
-    config = function()
-      require "extensions.cmp"
-    end
-  },
+      {
+          "hrsh7th/nvim-cmp",
+          event = "InsertEnter",
+          dependencies = {
+              "L3MON4D3/LuaSnip",
+              "saadparwaiz1/cmp_luasnip",
+              "hrsh7th/cmp-nvim-lsp",
+              "hrsh7th/cmp-path",
+              "hrsh7th/cmp-emoji",
+              "hrsh7th/cmp-nvim-lsp-signature-help",
+              "hrsh7th/cmp-nvim-lua",
+              "rafamadriz/friendly-snippets",
+          },
+          config = function()
+              require "extensions.cmp"
+          end
+      },
   -- }}}
 
   -- LSP Kind {{{
-  {
-    "onsails/lspkind-nvim",
-    lazy = true,
-    config = function()
-      require "extensions.lspkind"
-    end
-  },
+      {
+          "onsails/lspkind-nvim",
+          lazy = true,
+          config = function()
+              require "extensions.lspkind"
+          end
+      },
   -- }}}
 
   -- Git Signs{{{
-  {
-    "lewis6991/gitsigns.nvim",
-    lazy = false,
-    config = function()
-      require "extensions.gitsigns"
-    end
-  },
+      {
+          "lewis6991/gitsigns.nvim",
+          lazy = false,
+          config = function()
+              require "extensions.gitsigns"
+          end
+      },
   -- }}}
 
   -- Trouble {{{
-  {
-    "folke/trouble.nvim",
-    dependencies = "kyazdani42/nvim-web-devicons",
-    config = function()
-      require "extensions.trouble"
-    end,
-  },
+      {
+          "folke/trouble.nvim",
+          dependencies = "kyazdani42/nvim-web-devicons",
+          config = function()
+              require "extensions.trouble"
+          end,
+      },
   -- }}}
 
   -- TreeSitter {{{
-  {
-    "nvim-treesitter/nvim-treesitter",
-    lazy = false,
-    build = ":TSUpdate",
-    event = { "BufReadPost", "BufNewFile" },
-    config = function()
-      require "extensions.treesitter"
-    end
-  },
+      {
+          "nvim-treesitter/nvim-treesitter",
+          lazy = false,
+          build = ":TSUpdate",
+          event = { "BufReadPost", "BufNewFile" },
+          config = function()
+              require "extensions.treesitter"
+          end
+      },
   -- }}}
 
   -- Theme: Gruvbox {{{
-  {
-    "ellisonleao/gruvbox.nvim",
-  },
+      {
+          "ellisonleao/gruvbox.nvim",
+      },
   -- }}}
 
   -- Theme: Ofirkai {{{
-  {
-    "ofirgall/ofirkai.nvim",
-  },
+      {
+          "ofirgall/ofirkai.nvim",
+      },
   -- }}}
 
   -- Themify {{{
-  {
-    "lmantw/themify.nvim",
-    lazy = false,
-    priority = 999,
+      {
+          "lmantw/themify.nvim",
+          lazy = false,
+          priority = 999,
 
-    config = {}
-  },
+          config = {}
+      },
   -- }}}
 
   -- Mini.nvim {{{
-  {
-    "echasnovski/mini.nvim",
-    version = false,
-    config = function ()
-      require("extensions.mini")
-    end
-  },
+      {
+          "echasnovski/mini.nvim",
+          version = false,
+          config = function ()
+              require("extensions.mini")
+          end
+      },
   -- }}}
 
   -- FTerm {{{
-  {
-    "numToStr/FTerm.nvim",
-  },
+      {
+          "numToStr/FTerm.nvim",
+      },
+  -- }}}
+
+  -- tabby {{{
+      {
+          'nanozuki/tabby.nvim',
+          dependencies = 'nvim-tree/nvim-web-devicons',
+          config = function()
+              require "extensions.tabby"
+          end,
+      },
+  -- }}}
+
+  -- Nerdy {{{
+      {
+          '2kabhishek/nerdy.nvim',
+          dependencies = {
+              'stevearc/dressing.nvim',
+              'nvim-telescope/telescope.nvim',
+          },
+          cmd = 'Nerdy',
+      },
+  -- }}}
+
+  -- Neotree {{{
+      {
+          "nvim-neo-tree/neo-tree.nvim",
+          branch = "v3.x",
+          dependencies = {
+              "nvim-lua/plenary.nvim",
+              "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+              "MunifTanjim/nui.nvim",
+              -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+          },
+          config = function()
+              require "extensions.neotree"
+          end,
+      }
   -- }}}
 }

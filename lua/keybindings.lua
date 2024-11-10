@@ -8,6 +8,7 @@ wk.add({
   { "K", "<cmd>lua vim.lsp.buf.hover()<cr>", desc = "Hover information"},
   { "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", desc = "Go to declaration" },
   { "gr", "<cmd>Telescope lsp_references<cr>", desc = "Go to references"},
+  { "dm", "<cmd>%s/\\r//g<cr>", desc = "Delete carriage return"},
 })
 -- }}}
 
@@ -34,9 +35,14 @@ wk.add({
     { "<leader>fr", "<cmd>Telescope resume<cr>", desc = "Previous Telescope window" },
     { "<leader>fs", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Workspace symbols" },
     { "<leader>ft", "<cmd>Telescope<cr>", desc = "Open Telescope" },
+    { "<leader>fn", "<cmd>Nerdy<cr>", desc = "Search Nerd Font glyphs" },
   }
 })
 -- }}}
+
+wk.add({
+    { "<leader>v", "<cmd>lua MiniFiles.open()<cr>", desc = "Show file explorer" },
+})
 
 -- Trouble {{{
 wk.add({

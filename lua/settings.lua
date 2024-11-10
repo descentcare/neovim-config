@@ -22,6 +22,7 @@ opt.shiftwidth = 4                  -- Set amount of space characters, when we p
 opt.tabstop = 4                     -- 1 tab equal 2 spaces
 opt.smartindent = true              -- Turn on smart indentation. See in the docs for more info
 opt.smarttab = true
+opt.showtabline = 2
 -- }}}
 
 -- Clipboard {{{

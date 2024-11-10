@@ -4,8 +4,6 @@
   See: https://github.com/echasnovski/mini.nvim?tab=readme-ov-file
 ]]
 
-local wk = require("which-key")
-
 -- Statusline
 -- See: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-statusline.md
 require('mini.statusline').setup()
@@ -17,9 +15,6 @@ require('mini.files').setup({
     preview = true,
     width_preview = 80,
   }
-})
-wk.add({
-    { "<leader>v", "<cmd>lua MiniFiles.open()<cr>", desc = "Show file explorer" },
 })
 -- }}}
 
