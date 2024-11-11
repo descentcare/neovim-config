@@ -7,7 +7,7 @@ local wk = require("which-key")
 wk.add({
   { "K", "<cmd>lua vim.lsp.buf.hover()<cr>", desc = "Hover information"},
   { "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", desc = "Go to declaration" },
-  { "gr", "<cmd>Telescope lsp_references<cr>", desc = "Go to references"},
+  { "gr", "<cmd>FzfLua lsp_references<cr>", desc = "Go to references"},
   { "dm", "<cmd>%s/\\r//g<cr>", desc = "Delete carriage return"},
 })
 -- }}}
@@ -25,24 +25,30 @@ wk.add({
 -- Telescope {{{
 wk.add({
   {
-    { "<leader>f", group = "Telescope" },
-    { "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Find files" },
-    { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
-    { "<leader>fg", "<cmd>Telescope live_grep<CR>", desc = "Grep in files" },
-    { "<leader>fj", "<cmd>Telescope jumplist<cr>", desc = "Jumplist" },
-    { "<leader>fp", "<cmd>Telescope oldfiles<cr>", desc = "Oldfiles" },
-    { "<leader>fq", "<cmd>Telescope quickfix<cr>", desc = "Quickfix list" },
-    { "<leader>fr", "<cmd>Telescope resume<cr>", desc = "Previous Telescope window" },
-    { "<leader>fs", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Workspace symbols" },
-    { "<leader>ft", "<cmd>Telescope<cr>", desc = "Open Telescope" },
     { "<leader>fn", "<cmd>Nerdy<cr>", desc = "Search Nerd Font glyphs" },
   }
 })
 -- }}}
 
+-- Fzf-lua {{{
 wk.add({
-    { "<leader>v", "<cmd>lua MiniFiles.open()<cr>", desc = "Show file explorer" },
+    { "<leader>f", group = "FzfLua" },
+    { "<leader>ff", "<cmd>FzfLua files<CR>", desc = "Find files" },
+    { "<leader>fb", "<cmd>FzfLua buffers<cr>", desc = "Buffers" },
+    { "<leader>fg", "<cmd>FzfLua live_grep<CR>", desc = "Grep in files" },
+    { "<leader>fj", "<cmd>FzfLua jumps<cr>", desc = "Jumplist" },
+    { "<leader>fp", "<cmd>FzfLua oldfiles<cr>", desc = "Oldfiles" },
+    { "<leader>fq", "<cmd>FzfLua quickfix<cr>", desc = "Quickfix list" },
+    { "<leader>fr", "<cmd>FzfLua resume<cr>", desc = "Previous Telescope window" },
+    { "<leader>fz", "<cmd>FzfLua<cr>", desc = "Open FzfLua" },
 })
+-- }}}
+
+-- File Explorer {{{
+wk.add({
+    { "<leader>n", "<cmd>Neotree toggle left<cr>", desc = "Toggle file explorer" },
+})
+-- }}}
 
 -- Trouble {{{
 wk.add({
@@ -53,6 +59,11 @@ wk.add({
 -- FTerm {{{
 wk.add({
     { "<A-i>", "<cmd>lua require('FTerm').toggle()<cr>", desc = "Toggle terminal", mode = 'n' },
-    { "<A-i>", "<c-\\><c-n><cmd>lua require('FTerm').toggle()<cr>", desc = "Toggle terminal", mode = 't' },
+    {
+        "<A-i>",
+        "<c-\\><c-n><cmd>lua require('FTerm').toggle()<cr>",
+        desc = "Toggle terminal",
+        mode = 't'
+    },
 })
 -- }}}

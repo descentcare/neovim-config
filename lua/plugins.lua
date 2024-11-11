@@ -123,6 +123,12 @@ return {
       },
   -- }}}
 
+  -- Theme: Meadow {{{
+      {
+          "kuznetsss/meadow.nvim",
+      },
+  -- }}}
+
   -- Themify {{{
       {
           "lmantw/themify.nvim",
@@ -164,7 +170,7 @@ return {
           '2kabhishek/nerdy.nvim',
           dependencies = {
               'stevearc/dressing.nvim',
-              'nvim-telescope/telescope.nvim',
+              --'nvim-telescope/telescope.nvim',
           },
           cmd = 'Nerdy',
       },
@@ -183,6 +189,17 @@ return {
           config = function()
               require "extensions.neotree"
           end,
+      },
+  -- }}}
+
+  -- Fzf-lua {{{
+      {
+          "ibhagwan/fzf-lua",
+          -- optional for icon support
+          dependencies = { "nvim-tree/nvim-web-devicons" },
+          config = function()
+              -- require "extensions.fzf"
+          end
       }
   -- }}}
 }
