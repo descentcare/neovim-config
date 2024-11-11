@@ -10,15 +10,19 @@ local lspconfig = require("lspconfig")
 
 mason.setup()
 mason_lspconfig.setup({
-  ensure_installed = {
-    "lua_ls",             -- LSP for Lua language
-    "ts_ls",              -- LSP for Typescript
-    "emmet_ls",           -- LSP for Emmet (Vue, HTML, CSS)
-    "cssls",              -- LSP for CSS
-    "pyright",            -- LSP for Python
-    "volar",              -- LSP for Vue
-    "omnisharp",
-    --"gopls",              -- LSP for Go
+    registries = {
+        'github:mason-org/mason-registry',
+        'github:crashdummyy/mason-registry', -- For Roslyn and rzls(doesn't work yet)
+    },
+    ensure_installed = {
+        "lua_ls",             -- LSP for Lua language
+        "ts_ls",              -- LSP for Typescript
+        "emmet_ls",           -- LSP for Emmet (Vue, HTML, CSS)
+        "cssls",              -- LSP for CSS
+        "pyright",            -- LSP for Python
+--      "roslyn",             -- LSP for C#
+--      "rzls",               -- LSP for CSHTML
+--      "gopls",              -- LSP for Go
   }
 });
 
@@ -35,22 +39,6 @@ mason_lspconfig.setup_handlers {
           diagnostics = {
             globals = { "vim" },
           },
-        },
-      },
-    })
-  end,
-  ["volar"] = function()
-    lspconfig.volar.setup({
-      filetypes = { "vue" },
-      init_options = {
-        vue = {
-          -- Fix for Volar 2.0
-          -- See: https://github.com/vuejs/language-tools/issues/4180
-          -- See: https://github.com/williamboman/mason-lspconfig.nvim/issues/371
-          hybridMode = false,
-        },
-        typescript = {
-          tsdk = vim.fn.getcwd() .. "/node_modules/typescript/lib",
         },
       },
     })

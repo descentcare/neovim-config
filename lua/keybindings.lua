@@ -22,14 +22,6 @@ wk.add({
 })
  -- }}}
 
--- Telescope {{{
-wk.add({
-  {
-    { "<leader>fn", "<cmd>Nerdy<cr>", desc = "Search Nerd Font glyphs" },
-  }
-})
--- }}}
-
 -- Fzf-lua {{{
 wk.add({
     { "<leader>f", group = "FzfLua" },
@@ -39,8 +31,10 @@ wk.add({
     { "<leader>fj", "<cmd>FzfLua jumps<cr>", desc = "Jumplist" },
     { "<leader>fp", "<cmd>FzfLua oldfiles<cr>", desc = "Oldfiles" },
     { "<leader>fq", "<cmd>FzfLua quickfix<cr>", desc = "Quickfix list" },
-    { "<leader>fr", "<cmd>FzfLua resume<cr>", desc = "Previous Telescope window" },
+    { "<leader>fr", "<cmd>FzfLua resume<cr>", desc = "Previous FzfLua window" },
+    { "<leader>fa", "<cmd>FzfLua awesome_colorschemes<cr>", desc = "Awesome Colorschemes" },
     { "<leader>fz", "<cmd>FzfLua<cr>", desc = "Open FzfLua" },
+    { "<leader>fi", "<cmd>IconPickerNormal<cr>", desc = "Search Nerd Font glyphs" },
 })
 -- }}}
 

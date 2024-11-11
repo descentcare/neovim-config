@@ -35,18 +35,18 @@ return {
   -- }}}
 
   -- Telescope {{{
-      {
-          "nvim-telescope/telescope.nvim",
-          branch = "0.1.x",
-          lazy = false,
-          dependencies = {
-              "nvim-lua/plenary.nvim",
-              "ahmedkhalf/project.nvim",
-          },
-          config = function()
-              require "extensions.telescope"
-          end
-      },
+--    {
+--        "nvim-telescope/telescope.nvim",
+--        branch = "0.1.x",
+--        lazy = false,
+--        dependencies = {
+--            "nvim-lua/plenary.nvim",
+--            "ahmedkhalf/project.nvim",
+--        },
+--        config = function()
+--            require "extensions.telescope"
+--        end
+--    },
   -- }}}
 
   -- CMP {{{
@@ -165,14 +165,16 @@ return {
       },
   -- }}}
 
-  -- Nerdy {{{
+  -- icon-picker {{{
       {
-          '2kabhishek/nerdy.nvim',
+          "ziontee113/icon-picker.nvim",
           dependencies = {
-              'stevearc/dressing.nvim',
-              --'nvim-telescope/telescope.nvim',
+              "stevearc/dressing.nvim",
+              "ibhagwan/fzf-lua",
           },
-          cmd = 'Nerdy',
+          config = function()
+              require("icon-picker").setup({ disable_legacy_commands = true, })
+          end,
       },
   -- }}}
 
@@ -198,8 +200,29 @@ return {
           -- optional for icon support
           dependencies = { "nvim-tree/nvim-web-devicons" },
           config = function()
-              -- require "extensions.fzf"
+              require "extensions.fzf"
           end
-      }
+      },
   -- }}}
-}
+
+  -- Roslyn {{{
+      {
+          "seblj/roslyn.nvim",
+          ft = "cs",
+          opts = {
+              -- your configuration comes here; leave empty for default settings
+          }
+      },
+  -- }}}
+
+  -- eyeliner {{{
+      {
+          'jinh0/eyeliner.nvim',
+          config = function()
+              require'eyeliner'.setup {
+                  highlight_on_key = true
+              }
+          end
+      },
+  -- }}}
+  }

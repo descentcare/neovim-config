@@ -8,14 +8,19 @@
 -- See: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-statusline.md
 require('mini.statusline').setup()
 
+require('mini.indentscope').setup({
+    delay = 0,
+    symbol = '',
+})
+
 -- Files {{{
 -- See: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-files.md
-require('mini.files').setup({
-  windows = {
-    preview = true,
-    width_preview = 80,
-  }
-})
+--require('mini.files').setup({
+--  windows = {
+--    preview = true,
+--    width_preview = 80,
+--  }
+--})
 -- }}}
 
 -- Comments
