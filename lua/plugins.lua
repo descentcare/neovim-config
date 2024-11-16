@@ -226,8 +226,11 @@ return {
       },
   -- }}}
   -- OmniSharp {{{
-      --{
-          --'OmniSharp/omnisharp-vim',
-      --},
+      {
+          'OmniSharp/omnisharp-vim',
+      },
+      {
+          'OrangeT/vim-csharp',
+      },
   -- }}}
   }

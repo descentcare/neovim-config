@@ -7,6 +7,7 @@
 local mason = require("mason")
 
 mason.setup({
+    PATH = "prepend",
     registries = {
         'github:mason-org/mason-registry',
         'github:crashdummyy/mason-registry',

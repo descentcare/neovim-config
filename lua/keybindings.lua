@@ -59,3 +59,9 @@ wk.add({
         desc = "Toggle terminal", mode = 't' },
 })
 -- }}}
+-- Omnisharp {{{
+wk.add({
+    { "<leader>o", group = "Omnisharp" },
+    { "<leader>ofx", "<Plug>(omnisharp_fix_usings)", desc = "Fix usings", mode = 'n' },
+})
+-- }}}
