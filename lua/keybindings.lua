@@ -7,7 +7,6 @@ local wk = require("which-key")
 wk.add({
   { "K", "<cmd>lua vim.lsp.buf.hover()<cr>", desc = "Hover information"},
   { "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", desc = "Go to declaration" },
-  { "gr", "<cmd>FzfLua lsp_references<cr>", desc = "Go to references"},
   { "dm", "<cmd>%s/\\r//g<cr>", desc = "Delete carriage return"},
 })
 -- }}}
@@ -16,8 +15,11 @@ wk.add({
 wk.add({
   {
     { "<leader>l", group = "LSP" },
-    { "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", desc = "Code action" },
-    { "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<CR>", desc = "Rename symbol" },
+    { "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "Rename symbol" },
+    { "<leader>la", "<cmd>FzfLua lsp_code_actions<cr>", desc = "Code action" },
+    { "<leader>lu", "<cmd>FzfLua lsp_references<cr>", desc = "Go to usages"},
+    { "<leader>li", "<cmd>FzfLua lsp_implementations<cr>", desc = "Implementations"},
+    { "<leader>ld", "<cmd>FzfLua lsp_definitions<cr>", desc = "Definitions"},
   }
 })
  -- }}}
@@ -53,11 +55,7 @@ wk.add({
 -- FTerm {{{
 wk.add({
     { "<A-i>", "<cmd>lua require('FTerm').toggle()<cr>", desc = "Toggle terminal", mode = 'n' },
-    {
-        "<A-i>",
-        "<c-\\><c-n><cmd>lua require('FTerm').toggle()<cr>",
-        desc = "Toggle terminal",
-        mode = 't'
-    },
+    { "<A-i>", "<c-\\><c-n><cmd>lua require('FTerm').toggle()<cr>",
+        desc = "Toggle terminal", mode = 't' },
 })
 -- }}}

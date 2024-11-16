@@ -5,23 +5,24 @@
 ]]
 
 local mason = require("mason")
-local mason_lspconfig = require("mason-lspconfig")
-local lspconfig = require("lspconfig")
 
-mason.setup()
-mason_lspconfig.setup({
+mason.setup({
     registries = {
         'github:mason-org/mason-registry',
-        'github:crashdummyy/mason-registry', -- For Roslyn and rzls(doesn't work yet)
+        'github:crashdummyy/mason-registry',
     },
+})
+local mason_lspconfig = require("mason-lspconfig")
+local lspconfig = require("lspconfig")
+mason_lspconfig.setup({
     ensure_installed = {
         "lua_ls",             -- LSP for Lua language
         "ts_ls",              -- LSP for Typescript
         "emmet_ls",           -- LSP for Emmet (Vue, HTML, CSS)
         "cssls",              -- LSP for CSS
         "pyright",            -- LSP for Python
---      "roslyn",             -- LSP for C#
---      "rzls",               -- LSP for CSHTML
+        "roslyn",             -- LSP for C#
+        "rzls",               -- LSP for CSHTML
 --      "gopls",              -- LSP for Go
   }
 });

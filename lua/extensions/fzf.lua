@@ -1,6 +1,14 @@
 require("fzf-lua").setup({
     winopts = {
-        layout = "horizontal",
+        height = 0.8,
+        width = 0.8,
+        row = 0,
+        col = 1,
+        preview = {
+            layout = "vertical",
+            vertical = "down:80%",
+            wrap = "wrap",
+        },
     },
     keymap = {
         builtin = {
