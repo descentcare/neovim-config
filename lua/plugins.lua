@@ -225,4 +225,9 @@ return {
           end
       },
   -- }}}
+  -- OmniSharp {{{
+      --{
+          --'OmniSharp/omnisharp-vim',
+      --},
+  -- }}}
   }

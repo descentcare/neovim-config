@@ -23,6 +23,7 @@ mason_lspconfig.setup({
         "pyright",            -- LSP for Python
         "roslyn",             -- LSP for C#
         "rzls",               -- LSP for CSHTML
+        "csharpier",          -- Formater for C#
 --      "gopls",              -- LSP for Go
   }
 });
