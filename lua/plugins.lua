@@ -233,4 +233,9 @@ return {
           'OrangeT/vim-csharp',
       },
   -- }}}
+  -- Lush {{{
+      {
+          'rktjmp/lush.nvim',
+      }
+  -- }}}
   }
